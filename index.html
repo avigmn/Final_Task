@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>Predict Property Price</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap" rel="stylesheet">
+    <style>
+		label {
+		  display: block;
+		}
+       body {
+        font-family: 'Heebo Light', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Enter Property Details">
+        <h1>Predict Property Price</h1>
+        <h2>Enter Property Details: </h2>
+        <form id="measurement-form"action="{{ url_for('predict')}}"method="post">
+			<label for="City">City name:</label>
+			<input type="text" id="City" name="feature"><br><br>
+			<label for="type">type of property ('דירה' / 'דירת גן' / 'דירת גג' / 'בניין' / "קוטג'" / 'בית פרטי',
+       'דופלקס' / 'דירת נופש' / 'פנטהאוז' / "קוטג' טורי" / 'מיני פנטהאוז' /
+       'מגרש' / 'דו משפחתי' / 'אחר' / 'טריפלקס' / 'נחלה'):</label>
+			<input type="text" id="type" name="feature"><br><br>
+			<label for="area">area (in squared meters):</label>
+			<input type="text" id="area" name="feature"><br><br>
+			<label for="city_area">city_area:</label>
+			<input type="text" id="city_area" name="feature"><br><br>
+			<label for="hasParking">hasParking (1 for yes, 0 for no):</label>
+			<input type="text" id="hasParking" name="feature"><br><br>
+			<label for="condition">condition ('maintained' / 'new' / 'renovated' / 'not_defind' / 'old' /
+       'requires_renovation'):</label>
+			<input type="text" id="condition" name="feature"><br><br>
+			<label for="hasBalcony">hasBalcony (1 for yes, 0 for no):</label>
+			<input type="text" id="hasBalcony" name="feature"><br><br>
+			<label for="hasMamad">hasMamad (1 for yes, 0 for no):</label>
+			<input type="text" id="hasMamad" name="feature"><br><br>
+			<label for="furniture">furniture ('not_defined' / 'partial' / 'no' / 'full'):</label>
+			<input type="text" id="furniture" name="feature"><br><br>
+			<label for="floor">floor:</label>
+			<input type="text" id="floor" name="feature"><br><br>
+			<label for="entrance_date">entrance_date ('flexible' / 'less_than_6 months' / 'not_defined' / 'above_year' /'months_6_12'):</label>
+			<input type="text" id="entrance_date" name="feature"><br><br>
+			<button type="submit" class="btn btn-primary px-5" ">חיזוי מחיר</button>	
+		</form>
+        <h3>{{ prediction_text }}</h3>
+    </div>
+  </body>
+</html>
